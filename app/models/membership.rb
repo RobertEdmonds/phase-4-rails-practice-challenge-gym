@@ -9,7 +9,7 @@ class Membership < ApplicationRecord
 
   def only_one_charge_gym
     check = Membership.find_by(client_id: client_id, gym_id: gym_id)
-    if check.gym_id == gym_id 
+    if check
       errors.add(:gym_id, "Can Not Have Multiple Accouts With Same Gym")
     end
   end
